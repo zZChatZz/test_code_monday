@@ -11,7 +11,7 @@ Postman [Download](https://www.postman.com/downloads)
 
 # Get Started
 
-1. Clone Project ลงบนเครื่อง `git clone https://github.com/chut1382538/test_code_monday.git`
+1. Clone Project ลงบนเครื่อง `git clone https://github.com/zZChatZz/test_code_monday.git`
 2. เข้าไปที่โฟลเดอร์ test_code_monday ที่ติดตั้ง `cd test_code_monday`
 3. Copy ไฟล์ .env.example เป็นชื่อ .env `copy .env.example .env`
 4. ตั้งค่า ฐานข้อมูลที่ต้องการใช้งานที่ไฟล์ .env 
