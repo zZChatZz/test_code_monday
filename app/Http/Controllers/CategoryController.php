@@ -110,7 +110,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $categories = Category::where('id', $id)->delete();
+        $categories = Category::where('category_id', $id)->delete();
         return response()->json([
             'status' => '200',
             'message' => 'Success'
