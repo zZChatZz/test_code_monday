@@ -35,25 +35,54 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|string',
-            'parent_id' => 'nullable|integer'
+            'category_name' => 'required|string'
         ]);
 
-        $uniqid = Helper::autoIncrementCategory();
-        $user = new Category([
-            'category_name' => $request->category_name,
-            'category_id' => $uniqid,
-            'parent_id' => $request->parent_id
-        ]);
-        $user->save();
+        $category = $this->saveCategory($request);
 
         return response()->json([
             'status' => '201',
-            'data' => $user,
+            'data' => $category,
             'message' => 'Success'
         ], 201);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeLeaf(Request $request, $parent_id)
+    {
+        $request->validate([
+            'category_name' => 'required|string'
+        ]);
+
+        $parent_category = Category::find($parent_id);
+        if (empty($parent_category)) {
+            return response()->json([
+                'status' => '400',
+                'message' => 'Bad Request'
+            ], 400);
+        }
+
+        $category = $this->saveCategory($request);
+
+        return response()->json([
+            'status' => '201',
+            'data' => $category,
+            'message' => 'Success'
+        ], 201);
+    }
+
+    private function saveCategory($request) {
+        $uniqid = Helper::autoIncrementCategory();
+        $category = new Category([
+            'category_name' => $request->category_name,
+            'category_id' => $uniqid,
+            'parent_id' => $request->parent_id
+        ]);
+        $category->save();
+        return $category;
+    }
     /**
      * Display the specified resource tree.
      */

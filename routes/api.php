@@ -36,6 +36,7 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::post('category', [CategoryController::class, 'store']);
+    Route::post('category/{parent_id}/leaf', [CategoryController::class, 'storeLeaf']);
     Route::get('category/{category_id}', [CategoryController::class, 'show']);
     Route::get('categories', [CategoryController::class, 'index']);
     Route::delete('category/{category_id}', [CategoryController::class, 'destroy']);
