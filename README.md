@@ -37,7 +37,7 @@ php artisan passport:install
    8.1 เข้า เมนู Import\
    8.2 วาง Url ดังต่อไปนี้
 ```
-https://api.postman.com/collections/8796764-e0b8814d-cc38-49a8-850c-e9c1805bf677?access_key=PMAT-01J36HEQS24M8BJ8Q46HJDYD5Z
+https://api.postman.com/collections/8796764-d4e11256-7f82-4cb2-9c94-d65bfcf1355e?access_key=PMAT-01J36WRHFY17N825KJX1KQ7MHX
 ```
 9. เริ่มต้นการทดสอบ api ผ่าน Postman 
    
